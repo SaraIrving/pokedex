@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
      Welcome to the Pokedex!
-     {state.randomPokemon !== {} && <p>There is random pokemon in the state!</p>}
+     {Object.keys(state["randomPokemon"]).length !== 0 && <p>There is random pokemon in the state!</p>}
      <Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button>
     </div>
   );
