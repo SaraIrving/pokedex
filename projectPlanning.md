@@ -52,3 +52,9 @@
     * https://www.w3schools.com/howto/howto_js_autocomplete.asp
     * Seems to indicate that I will likely need a list of all of the names of the Pokemon???
       * Can I get this from the api somehow? 
+
+## Components list
+- Button
+- Textarea 
+- Card 
+- Header 
