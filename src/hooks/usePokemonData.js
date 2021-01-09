@@ -22,12 +22,13 @@ export default function usePokemonData(props) {
   - first request will search for the name of the pokemon
   - second request will use the species number gathered in the first request to determine which color we should use 
   */
-  const getPokemon = function(pokeName) {}
+  const getPokemon = function(pokeName) {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
     .then((response) => {
       console.log(response)
     }
     )
+  }
 
 
 
