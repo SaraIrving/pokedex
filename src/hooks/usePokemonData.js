@@ -16,6 +16,37 @@ export default function usePokemonData(props) {
                                       searchedColor: "tester"
 
                                     });
+
+  /*
+  Set up initial GET request for the random pokemon data that will fire when app loads
+  - get this request to run on initial render by wrapping in useEffect?
+  - probably as soon as they click the search button we should delete this data so that it can be rendered conditionally based on it's presence? 
+  - choose a random number between 1 and 898 which is total pokemon species and use those in the api call? 
+  */
+  
+
+  useEffect(() => {
+
+    const randomID = [];
+    for (let i = 0; i < 3; i++) {
+      console.log(Math.floor(Math.random() * 898))
+      randomID.push(Math.floor(Math.random() * 898));
+    }
+
+    Promise.all([
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID[0]}`),
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID[1]}`),
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID[2]}`),
+    ])
+    .then((all) => {
+      // update randomPokemon key of state with this infomation
+      console.log('all = ', all);
+    })
+
+  }, [])
+ 
+
+
   
   /*
   Make GET requests to the api
@@ -25,6 +56,7 @@ export default function usePokemonData(props) {
   const getPokemon = function(pokeName) {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
     .then((response) => {
+      //update searchedPokemon key of state with this information
       console.log(response)
     }
     )
