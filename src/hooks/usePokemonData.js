@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function usePokemonData() {
+export default function usePokemonData(props) {
 
   /* create a state object that contains all values and updates all values 
   - State will be an object
@@ -12,12 +12,29 @@ export default function usePokemonData() {
 
   const [state, setState] = useState({
                                       randomPokemon: {},
-                                      searchedPokemon: {},
-                                      searchedColor: ""
+                                      searchedPokemon: {faker: {}},
+                                      searchedColor: "tester"
 
                                     });
   
-  // Make GET requests to the api
+  /*
+  Make GET requests to the api
+  - first request will search for the name of the pokemon
+  - second request will use the species number gathered in the first request to determine which color we should use 
+  */
+  const getPokemon = function(pokeName) {}
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+    .then((response) => {
+      console.log(response)
+    }
+    )
 
+
+
+  return {
+    state, 
+    setState, 
+    getPokemon
+  }
 
 }
