@@ -12,7 +12,8 @@ function App() {
   return (
     <div className="App">
      Welcome to the Pokedex!
-     <Button buttonLabel="Find that Pokemon!"></Button>
+     {state.randomPokemon !== {} && <p>There is random pokemon in the state!</p>}
+     <Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button>
     </div>
   );
 }
