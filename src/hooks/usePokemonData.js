@@ -41,6 +41,10 @@ export default function usePokemonData(props) {
     .then((all) => {
       // update randomPokemon key of state with this infomation
       console.log('all = ', all);
+      console.log('all[0].data = ', all[0].data);
+      setState(prev => ({...prev, randomPokemon: {id: all[0].data.id}}))
+      //state.randomPokemon[all[0].data.name] = {id: all[0].data.id}
+      console.log("state after random api call = ", state)
     })
 
   }, [])
@@ -53,13 +57,17 @@ export default function usePokemonData(props) {
   - first request will search for the name of the pokemon
   - second request will use the species number gathered in the first request to determine which color we should use 
   */
-  const getPokemon = function(pokeName) {
+  const getPokemon = function() {
+    console.log("inside getPokemon")
+    const pokeName = "charmander"
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
     .then((response) => {
+      // wipe randomPokemon state so it will no longer be rendered
+      
       //update searchedPokemon key of state with this information
-      console.log(response)
-    }
-    )
+      console.log('response in getPokemon function = ', response)
+      setState(prev => ({...prev, randomPokemon: {}, searchedPokemon: {name: response.data.name}}))
+    })
   }
 
 
