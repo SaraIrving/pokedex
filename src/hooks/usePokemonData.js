@@ -42,7 +42,7 @@ export default function usePokemonData(props) {
       // console.log('all = ', all);
       console.log('all[0].data = ', all[0].data);
       // build up an object with the data structure you want randomPokemon in state to have, then use that object to set the state with
-      const randomPokemonArray = {};
+      const randomPokemonArray = [];
       for (let pokemon of all) {
         randomPokemonArray.push({name: pokemon.data.name,
                                   height: pokemon.data.height,
