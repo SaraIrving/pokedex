@@ -27,9 +27,8 @@ export default function usePokemonData(props) {
 
   useEffect(() => {
 
-    const randomID = [];
+    let randomID = [];
     for (let i = 0; i < 3; i++) {
-      console.log(Math.floor(Math.random() * 898))
       randomID.push(Math.floor(Math.random() * 898));
     }
 
@@ -43,8 +42,10 @@ export default function usePokemonData(props) {
       console.log('all = ', all);
       console.log('all[0].data = ', all[0].data);
       setState(prev => ({...prev, randomPokemon: {id: all[0].data.id}}))
+
+      randomID = [];
       //state.randomPokemon[all[0].data.name] = {id: all[0].data.id}
-      console.log("state after random api call = ", state)
+      //console.log("state after random api call = ", state)
     })
 
   }, [])
@@ -70,12 +71,19 @@ export default function usePokemonData(props) {
     })
   }
 
+  const clearRandom = function() {
+    console.log("clearRandom func running!")
+    console.log("state before the update = ", state.randomPokemon)
+    setState(prev => ({...prev, randomPokemon: {}}));
+
+  }
 
 
   return {
     state, 
     setState, 
-    getPokemon
+    getPokemon,
+    clearRandom
   }
 
 }
