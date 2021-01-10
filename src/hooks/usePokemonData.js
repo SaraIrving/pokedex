@@ -69,6 +69,7 @@ export default function usePokemonData(props) {
       console.log('response in getPokemon function = ', response)
       setState(prev => ({...prev, randomPokemon: {}, searchedPokemon: {name: response.data.name}}))
     })
+    .then((response) => console.log("The new pokemon should be in state = ", state))
   }
 
   const clearRandom = function() {
