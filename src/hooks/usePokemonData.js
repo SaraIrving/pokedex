@@ -51,7 +51,8 @@ export default function usePokemonData(props) {
                                   abilities: pokemon.data.abilities,
                                   baseStats: pokemon.data.stats
                                   }); 
-      }
+      };
+      console.log("in random call, ramdomPokemonArray = ", randomPokemonArray)
       setState(prev => ({...prev, randomPokemon: randomPokemonArray}));
 
       //state.randomPokemon[all[0].data.name] = {id: all[0].data.id}
@@ -77,7 +78,7 @@ export default function usePokemonData(props) {
       
       //update searchedPokemon key of state with this information
       console.log('response in getPokemon function = ', response)
-      setState(prev => ({...prev, randomPokemon: {}, searchedPokemon: {name: response.data.name}}))
+      setState(prev => ({...prev, randomPokemon: [], searchedPokemon: {name: response.data.name}}))
     })
     .then((response) => console.log("The new pokemon should be in state = ", state))
   }
