@@ -12,8 +12,10 @@ export default function usePokemonData(props) {
 
   const [state, setState] = useState({
                                       randomPokemon: [],
-                                      searchedPokemon: {faker: {}},
-                                      searchedColor: "tester"
+                                      searchedPokemon: {},
+                                      randomColorArray: [],
+                                      searchedColor: "tester",
+                                      view: "loading"
 
                                     });
 
@@ -54,8 +56,8 @@ export default function usePokemonData(props) {
                                 
                                   }); 
       };
-      console.log("in random call, ramdomPokemonArray = ", randomPokemonArray)
-      setState(prev => ({...prev, randomPokemon: randomPokemonArray}));
+      console.log("in random call, randomPokemonArray = ", randomPokemonArray)
+      setState(prev => ({...prev, randomPokemon: randomPokemonArray, view: "landing"}));
 
       //state.randomPokemon[all[0].data.name] = {id: all[0].data.id}
       //console.log("state after random api call = ", state)

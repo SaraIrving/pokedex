@@ -34,7 +34,7 @@ export default function LandingCard(props) {
           </div>
         )
       })}
-      <Button buttonLabel="Click here to start your search!" onClick={() => (props.setState(prev => ({...prev, randomPokemon: []})))}></Button>
+      <Button buttonLabel="Click here to start your search!" onClick={() => (props.setState(prev => ({...prev, randomPokemon: [], view: "search"})))}></Button>
 
     </div>
     

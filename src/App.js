@@ -16,8 +16,9 @@ function App() {
      Welcome to the Pokedex!
      {console.log('state =', state.randomPokemon)}
      {console.log('random length  = ', state.randomPokemon.length)}
-     {state.randomPokemon.length !== 0 && <LandingCard state={state} setState={setState}></LandingCard>}
-     {state.randomPokemon.length === 0 &&  <div><p>{state.searchedPokemon.name}</p><Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button></div>}
+     {state.view === "loading" && <p>loading GIF here!</p>}
+     {state.view === "landing" && <LandingCard state={state} setState={setState}></LandingCard>}
+     {state.view === "search" &&  <div><p>{state.searchedPokemon.name}</p><Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button></div>}
     
     </div>
   );
