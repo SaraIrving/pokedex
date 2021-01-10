@@ -1,6 +1,8 @@
 import './App.css';
 import Button from './components/Button';
+import LandingCard from './components/LandingCard';
 import usePokemonData from './hooks/usePokemonData';
+
 
 function App() {
   const {state, setState, getPokemon} = usePokemonData();
@@ -12,7 +14,7 @@ function App() {
   return (
     <div className="App">
      Welcome to the Pokedex!
-     {Object.keys(state["randomPokemon"]).length !== 0 && <p>There is random pokemon in the state!</p>}
+     {Object.keys(state["randomPokemon"]).length !== 0 && <LandingCard></LandingCard>}
      <Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button>
     </div>
   );
