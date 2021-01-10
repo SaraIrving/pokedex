@@ -49,7 +49,9 @@ export default function usePokemonData(props) {
                                   weight: pokemon.data.weight, 
                                   types: pokemon.data.types,
                                   abilities: pokemon.data.abilities,
-                                  baseStats: pokemon.data.stats
+                                  baseStats: pokemon.data.stats,
+                                  sprites: pokemon.data.sprites
+                                
                                   }); 
       };
       console.log("in random call, ramdomPokemonArray = ", randomPokemonArray)
