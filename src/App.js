@@ -15,7 +15,8 @@ function App() {
     <div className="App">
      Welcome to the Pokedex!
      {Object.keys(state["randomPokemon"]).length !== 0 && <LandingCard></LandingCard>}
-     <Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button>
+     {Object.keys(state["randomPokemon"]).length === 0 &&  <Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button>}
+    
     </div>
   );
 }
