@@ -11,7 +11,7 @@ export default function usePokemonData(props) {
   */
 
   const [state, setState] = useState({
-                                      randomPokemon: {},
+                                      randomPokemon: [],
                                       searchedPokemon: {faker: {}},
                                       searchedColor: "tester"
 
@@ -40,10 +40,20 @@ export default function usePokemonData(props) {
     .then((all) => {
       // update randomPokemon key of state with this infomation
       // console.log('all = ', all);
-      // console.log('all[0].data = ', all[0].data);
-      setState(prev => ({...prev, randomPokemon: {id: all[0].data.id}}))
+      console.log('all[0].data = ', all[0].data);
+      // build up an object with the data structure you want randomPokemon in state to have, then use that object to set the state with
+      const randomPokemonArray = {};
+      for (let pokemon of all) {
+        randomPokemonArray.push({name: pokemon.data.name,
+                                  height: pokemon.data.height,
+                                  weight: pokemon.data.weight, 
+                                  types: pokemon.data.types,
+                                  abilities: pokemon.data.abilities,
+                                  baseStats: pokemon.data.stats
+                                  }); 
+      }
+      setState(prev => ({...prev, randomPokemon: randomPokemonArray}));
 
-      randomID = [];
       //state.randomPokemon[all[0].data.name] = {id: all[0].data.id}
       //console.log("state after random api call = ", state)
     })
