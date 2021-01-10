@@ -39,8 +39,8 @@ export default function usePokemonData(props) {
     ])
     .then((all) => {
       // update randomPokemon key of state with this infomation
-      console.log('all = ', all);
-      console.log('all[0].data = ', all[0].data);
+      // console.log('all = ', all);
+      // console.log('all[0].data = ', all[0].data);
       setState(prev => ({...prev, randomPokemon: {id: all[0].data.id}}))
 
       randomID = [];
@@ -72,19 +72,18 @@ export default function usePokemonData(props) {
     .then((response) => console.log("The new pokemon should be in state = ", state))
   }
 
-  const clearRandom = function() {
-    console.log("clearRandom func running!")
-    console.log("state before the update = ", state.randomPokemon)
-    setState(prev => ({...prev, randomPokemon: {}}));
+  // const clearRandom = function() {
+  //   console.log("clearRandom func running!")
+  //   console.log("state before the update = ", state.randomPokemon)
+  //   setState(prev => ({...prev, randomPokemon: {}}));
 
-  }
+  // }
 
 
   return {
     state, 
     setState, 
     getPokemon,
-    clearRandom
   }
 
 }
