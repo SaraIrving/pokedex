@@ -14,8 +14,10 @@ function App() {
   return (
     <div className="App">
      Welcome to the Pokedex!
-     {Object.keys(state["randomPokemon"]).length !== 0 && <LandingCard></LandingCard>}
-     {Object.keys(state["randomPokemon"]).length === 0 &&  <Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button>}
+     {console.log('state =', state["randomPokemon"])}
+     {console.log('keys  = ', Object.keys(state["randomPokemon"]).length)}
+     {Object.keys(state["randomPokemon"]).length !== 0 && <LandingCard setState={setState}></LandingCard>}
+     {Object.keys(state["randomPokemon"]).length === 0 &&  <div><p>{state.searchedPokemon.name}</p><Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button></div>}
     
     </div>
   );
