@@ -16,7 +16,21 @@ export default function LandingCard(props) {
       {props.state.randomPokemon.map((random, index) => {
         return (
           <div>
-            <p>{random.name}</p>
+            <p>name = {random.name}</p>
+            <p>height = {random.hight}</p>
+            <p>weight = {random.weight}</p>
+            <p>types = {random.types.map((type, index) => {
+              return (
+                <p>{type.type.name}</p>
+              );
+            })}</p>
+            <p>abilities = {random.abilities.map((ableTo, index) => {
+              return (
+                <p>{ableTo.ability.name}</p>
+              );
+            })}</p>
+            <p>base stats</p>
+            
           </div>
         )
       })}
