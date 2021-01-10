@@ -58,3 +58,7 @@
 - Textarea 
 - Card 
 - Header 
+- Loading component (probably hold a loading GIF? display while random api call is made)
+- Landing Card (3 of these will be displayed once the api calls for the random pokemon are made)
+- Sprites component (slider features will live here)
+- InfoStats component (details about pokemon)
