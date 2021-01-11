@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export default function InfoStats(props) {
   console.log("INFOSTATS props = ", props)
   const style = {
@@ -18,12 +19,12 @@ export default function InfoStats(props) {
           <p>weight = {props.random.weight}</p>
           <p>types = {props.random.types.map((type, index) => {
             return (
-              <span>{type.type.name} </span>
+              <span key={index}>{type.type.name} </span>
             );
           })}</p>
           <p>abilities = {props.random.abilities.map((ableTo, index) => {
             return (
-              <span>{ableTo.ability.name} </span>
+              <span key={index}>{ableTo.ability.name} </span>
             );
           })}</p>
         </div>
