@@ -38,11 +38,13 @@ export default function usePokemonData(props) {
       axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID[0]}`),
       axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID[1]}`),
       axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID[2]}`),
+      
     ])
     .then((all) => {
       // update randomPokemon key of state with this infomation
       // console.log('all = ', all);
       console.log('all[0].data = ', all[0].data);
+      
       // build up an object with the data structure you want randomPokemon in state to have, then use that object to set the state with
       const randomPokemonArray = [];
       for (let pokemon of all) {
@@ -58,10 +60,31 @@ export default function usePokemonData(props) {
       };
       console.log("in random call, randomPokemonArray = ", randomPokemonArray)
       setState(prev => ({...prev, randomPokemon: randomPokemonArray, view: "landing"}));
+      return randomPokemonArray;
 
       //state.randomPokemon[all[0].data.name] = {id: all[0].data.id}
       //console.log("state after random api call = ", state)
     })
+    .then((response) => {console.log("RESONSE IN NEXT THEN = ", response);
+    
+      Promise.all([
+        axios.get(`https://pokeapi.co/api/v2/pokemon-species/${response[0].name}`),
+        axios.get(`https://pokeapi.co/api/v2/pokemon-species/${response[1].name}`),
+        axios.get(`https://pokeapi.co/api/v2/pokemon-species/${response[2].name}`)
+
+      ])
+      .then((colorResponse) => {
+        console.log("COLOR RESPONSE  =", colorResponse[0].data.color.name)
+        const color1 = colorResponse[0].data.color.name;
+        const color2 = colorResponse[1].data.color.name;
+        const color3 = colorResponse[2].data.color.name;
+        const randomColors = [color1, color2, color3];
+        console.log("color array = ", randomColors)
+        setState(prev => ({...prev, randomColorArray: randomColors}));
+      })
+  
+    })
+    
 
   }, [])
  
