@@ -95,11 +95,33 @@ This useEffect wraps the api call for when a user searches for a specific pokemo
     console.log("Inside search useEffect", state.searchedPokemonName)
 
     const name = state.searchedPokemonName;
+    console.log("^^^^NAME == ", name);
     //const test = "ivysaur";
+
+    // Promise.all([
+    //   axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`),
+    //   axios.get(`https://pokeapi.co/api/v2/pokemon-species/${name}`)
+    // ])
+    // .then((response) => {
+    //   console.log("***result of searchedPokemon api call = ", response)
+    //   const color = response[1].data.color.name;
+    //   const responseData = response[0].data;
+    //   const searchedPokemonObj = {name: responseData.name,
+    //                               height: responseData.height,
+    //                               weight: responseData.weight, 
+    //                               types: responseData.types,
+    //                               abilities: responseData.abilities,
+    //                               baseStats: responseData.stats,
+    //                               sprites: responseData.sprites
+    //                               };
+
+    //   // update state with values returned from api
+    //   setState(prev => ({...prev, searchedPokemon: searchedPokemonObj, searchedColor: color}));
+    // })
 
     axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
     .then((response) => {
-      console.log("***result of searchedPokemon api call = ", response.data)
+      console.log("***RESPONSE = ", response)
       const responseData = response.data;
       const searchedPokemonObj = {name: responseData.name,
                                   height: responseData.height,
@@ -111,8 +133,16 @@ This useEffect wraps the api call for when a user searches for a specific pokemo
                                   };
 
       // update state with values returned from api
-      setState(prev => ({...prev, searchedPokemon: searchedPokemonObj}))
+      setState(prev => ({...prev, searchedPokemon: searchedPokemonObj}));
     })
+    .then(
+      axios.get(`https://pokeapi.co/api/v2/pokemon-species/${name}`)
+      .then(response => {
+        const color = response.data.color.name;
+        setState(prev => ({...prev, searchedColor: color}));
+      })
+    )
+  
   }, [state.searchedPokemonName])
 
   
