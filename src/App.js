@@ -2,6 +2,7 @@ import './App.css';
 import Button from './components/Button';
 import LandingCard from './components/LandingCard';
 import Loading from './components/Loading';
+import SearchView from './components/SearchView';
 import usePokemonData from './hooks/usePokemonData';
 
 
@@ -19,7 +20,7 @@ function App() {
      {console.log('random length  = ', state.randomPokemon.length)}
      {state.view === "loading" && <Loading></Loading>}
      {state.view === "landing" && <LandingCard state={state} setState={setState}></LandingCard>}
-     {state.view === "search" &&  <div><p>{state.searchedPokemon.name}</p><Button buttonLabel="Find that Pokemon!" onClick={getPokemon}></Button></div>}
+     {state.view === "search" &&  <SearchView state={state} onClick={getPokemon}></SearchView>}
     
     </div>
   );
