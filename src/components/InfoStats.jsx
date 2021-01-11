@@ -15,7 +15,7 @@ export default function InfoStats(props) {
         <div>
           <h3>Basic Info</h3>
           <p>name = {props.random.name}</p>
-          <p>height = {props.random.hight}</p>
+          <p>height = {props.random.height}</p>
           <p>weight = {props.random.weight}</p>
           <p>types = {props.random.types.map((type, index) => {
             return (
