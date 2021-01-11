@@ -15,7 +15,7 @@ export default function usePokemonData(props) {
                                       searchedPokemon: {},
                                       searchedPokemonName:"",
                                       randomColorArray: [],
-                                      searchedColor: "tester",
+                                      searchedColor: "",
                                       view: "loading"
 
                                     });
@@ -44,7 +44,7 @@ export default function usePokemonData(props) {
     .then((all) => {
       // update randomPokemon key of state with this infomation
       // console.log('all = ', all);
-      console.log('all[0].data = ', all[0].data);
+      //console.log('all[0].data = ', all[0].data);
       
       // build up an object with the data structure you want randomPokemon in state to have, then use that object to set the state with
       const randomPokemonArray = [];
@@ -59,14 +59,14 @@ export default function usePokemonData(props) {
                                 
                                   }); 
       };
-      console.log("in random call, randomPokemonArray = ", randomPokemonArray)
+      //console.log("in random call, randomPokemonArray = ", randomPokemonArray)
       setState(prev => ({...prev, randomPokemon: randomPokemonArray, view: "landing"}));
       return randomPokemonArray;
 
       //state.randomPokemon[all[0].data.name] = {id: all[0].data.id}
       //console.log("state after random api call = ", state)
     })
-    .then((response) => {console.log("RESONSE IN NEXT THEN = ", response);
+    .then((response) => {//console.log("RESONSE IN NEXT THEN = ", response);
     
       Promise.all([
         axios.get(`https://pokeapi.co/api/v2/pokemon-species/${response[0].name}`),
@@ -75,12 +75,12 @@ export default function usePokemonData(props) {
 
       ])
       .then((colorResponse) => {
-        console.log("COLOR RESPONSE  =", colorResponse[0].data.color.name)
+        //console.log("COLOR RESPONSE  =", colorResponse[0].data.color.name)
         const color1 = colorResponse[0].data.color.name;
         const color2 = colorResponse[1].data.color.name;
         const color3 = colorResponse[2].data.color.name;
         const randomColors = [color1, color2, color3];
-        console.log("color array = ", randomColors)
+        //console.log("color array = ", randomColors)
         setState(prev => ({...prev, randomColorArray: randomColors}));
       })
   
@@ -119,9 +119,10 @@ This useEffect wraps the api call for when a user searches for a specific pokemo
     //   setState(prev => ({...prev, searchedPokemon: searchedPokemonObj, searchedColor: color}));
     // })
 
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    if(state.searchedPokemonName !== ""){
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
     .then((response) => {
-      console.log("***RESPONSE = ", response)
+     // console.log("***RESPONSE = ", response)
       const responseData = response.data;
       const searchedPokemonObj = {name: responseData.name,
                                   height: responseData.height,
@@ -138,10 +139,14 @@ This useEffect wraps the api call for when a user searches for a specific pokemo
     .then(
       axios.get(`https://pokeapi.co/api/v2/pokemon-species/${name}`)
       .then(response => {
+        console.log("INSIDE SEARCHED COLOR", response);
         const color = response.data.color.name;
         setState(prev => ({...prev, searchedColor: color}));
       })
     )
+
+    }
+    
   
   }, [state.searchedPokemonName])
 
@@ -152,14 +157,14 @@ This useEffect wraps the api call for when a user searches for a specific pokemo
   - second request will use the species number gathered in the first request to determine which color we should use 
   */
   const getPokemon = function() {
-    console.log("inside getPokemon")
+    //console.log("inside getPokemon")
     const pokeName = "charmander"
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
     .then((response) => {
       // wipe randomPokemon state so it will no longer be rendered
       
       //update searchedPokemon key of state with this information
-      console.log('response in getPokemon function = ', response)
+      //console.log('response in getPokemon function = ', response)
       setState(prev => ({...prev, randomPokemon: [], searchedPokemon: {name: response.data.name}}))
     })
     .then((response) => console.log("The new pokemon should be in state = ", state))
