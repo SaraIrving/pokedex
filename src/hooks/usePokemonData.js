@@ -13,6 +13,7 @@ export default function usePokemonData(props) {
   const [state, setState] = useState({
                                       randomPokemon: [],
                                       searchedPokemon: {},
+                                      searchedPokemonName:"",
                                       randomColorArray: [],
                                       searchedColor: "tester",
                                       view: "loading"
