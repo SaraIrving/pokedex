@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +35,17 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.randomPokemonList{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.randomListItem{
+  margin: 4px;
+  width: 30%;
+ 
 }
