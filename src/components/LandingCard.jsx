@@ -22,7 +22,7 @@ export default function LandingCard(props) {
           return (
             <li className="randomListItem">
               <LightSpeed key={index}>
-                <InfoStats random={random} randomColor={props.state.randomColorArray[index]} key={index}></InfoStats>
+                <InfoStats pokemon={random} color={props.state.randomColorArray[index]} key={index}></InfoStats>
               </LightSpeed>
             </li>
             )
