@@ -15,6 +15,7 @@ export default function LandingCard(props) {
     <div>
       <p>Want to find your favorite pokemon? Click the button below to start your search!</p>
       {/* {console.log("in Landing Card, randomPokemon = ", props.state.randomPokemon)} */}
+      <Button buttonLabel="Click here to start your search!" onClick={() => (props.setState(prev => ({...prev, randomPokemon: [], view: "search"})))}></Button>
       <ul className="randomPokemonList">
         {props.state.randomPokemon.map((random, index) => {
       
@@ -28,8 +29,6 @@ export default function LandingCard(props) {
           })}
 
       </ul>
-      
-      <Button buttonLabel="Click here to start your search!" onClick={() => (props.setState(prev => ({...prev, randomPokemon: [], view: "search"})))}></Button>
     </div>
     
 
