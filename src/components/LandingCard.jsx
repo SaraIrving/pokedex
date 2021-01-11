@@ -13,17 +13,22 @@ export default function LandingCard(props) {
 
   return (
     <div>
-      <p>This is the initial landing card with random pokemon to display</p>
-      {console.log("in Landing Card, randomPokemon = ", props.state.randomPokemon)}
-      {props.state.randomPokemon.map((random, index) => {
-        console.log("INDEX = ", index)
-        return (
-          <LightSpeed key={index}>
-            <InfoStats random={random} randomColor={props.state.randomColorArray[index]} key={index}></InfoStats>
-          </LightSpeed>
-          
-        )
-      })}
+      <p>Want to find your favorite pokemon? Click the button below to start your search!</p>
+      {/* {console.log("in Landing Card, randomPokemon = ", props.state.randomPokemon)} */}
+      <ul className="randomPokemonList">
+        {props.state.randomPokemon.map((random, index) => {
+      
+          return (
+            <li className="randomListItem">
+              <LightSpeed key={index}>
+                <InfoStats random={random} randomColor={props.state.randomColorArray[index]} key={index}></InfoStats>
+              </LightSpeed>
+            </li>
+            )
+          })}
+
+      </ul>
+      
       <Button buttonLabel="Click here to start your search!" onClick={() => (props.setState(prev => ({...prev, randomPokemon: [], view: "search"})))}></Button>
     </div>
     
