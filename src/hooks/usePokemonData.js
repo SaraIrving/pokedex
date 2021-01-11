@@ -89,7 +89,31 @@ export default function usePokemonData(props) {
 
   }, [])
  
+/*
+This useEffect wraps the api call for when a user searches for a specific pokemon, it runs dependant on the value of searchedPokemonName updating in the state - this is triggered when the user selects a value from the list of autocomplete options in the SearchBox component */
+  useEffect(() => {
+    console.log("Inside search useEffect", state.searchedPokemonName)
 
+    const name = state.searchedPokemonName;
+    //const test = "ivysaur";
+
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    .then((response) => {
+      console.log("***result of searchedPokemon api call = ", response.data)
+      const responseData = response.data;
+      const searchedPokemonObj = {name: responseData.name,
+                                  height: responseData.height,
+                                  weight: responseData.weight, 
+                                  types: responseData.types,
+                                  abilities: responseData.abilities,
+                                  baseStats: responseData.stats,
+                                  sprites: responseData.sprites
+                                  };
+
+      // update state with values returned from api
+      setState(prev => ({...prev, searchedPokemon: searchedPokemonObj}))
+    })
+  }, [state.searchedPokemonName])
 
   
   /*
