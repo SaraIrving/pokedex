@@ -18,8 +18,8 @@ export default function LandingCard(props) {
       {props.state.randomPokemon.map((random, index) => {
         console.log("INDEX = ", index)
         return (
-          <LightSpeed>
-            <InfoStats random={random} randomColor={props.state.randomColorArray[index]}></InfoStats>
+          <LightSpeed key={index}>
+            <InfoStats random={random} randomColor={props.state.randomColorArray[index]} key={index}></InfoStats>
           </LightSpeed>
           
         )
