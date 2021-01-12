@@ -5,17 +5,18 @@ import ImageCarousel from './ImageCarousel';
 export default function InfoStats(props) {
   console.log("INFOSTATS props = ", props)
   const style = {
-                  borderWidth: "5px",
+                  borderWidth: "10px",
                   borderStyle: "solid",
-                  borderColor: props.color
+                  borderColor: props.color,
+                  borderRadius: '10px'
                 };
 
   return (
     <div style={style} className="InfoStatsWrapper">
       <ImageCarousel pokemonObj={props.pokemon}></ImageCarousel>
-      <div className="InfoStatsWrapper">
+      <div className="InfoWrapper" >
         <div>
-          <h3>Basic Info</h3>
+          <h6>Basic Info</h6>
           <p>name = {props.pokemon.name}</p>
           <p>height = {props.pokemon.height}</p>
           <p>weight = {props.pokemon.weight}</p>
@@ -31,7 +32,7 @@ export default function InfoStats(props) {
           })}</p>
         </div>
         <div>
-          <h3>Base Stats</h3>
+          <h6>Base Stats</h6>
           <p>hp: {props.pokemon.baseStats[0].base_stat}</p>
           <p>attack: {props.pokemon.baseStats[1].base_stat}</p>
           <p>defense: {props.pokemon.baseStats[2].base_stat}</p>
