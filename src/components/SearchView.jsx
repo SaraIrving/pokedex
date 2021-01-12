@@ -7,12 +7,12 @@ export default function SearchView (props) {
   //console.log("SEARCH props = ", props)
 
   return (
-    <div>
+    <div className="searchedPokemonWrapper">
       <SearchBox state={props.state} setState={props.setState}></SearchBox>
       {/* <Button buttonLabel="Find that Pokemon!" onClick={props.onClick}></Button>
       <p>{props.state.searchedPokemon.name}</p>
       <p>RENDER SEARCHED CARD HERE</p> */}
-      {props.state.searchedPokemon.name && <InfoStats pokemon={props.state.searchedPokemon} color={props.state.searchedColor}></InfoStats>}
+      {props.state.searchedPokemon.name && <InfoStats pokemon={props.state.searchedPokemon} color={props.state.searchedColor} state={props.state}></InfoStats>}
     </div>
   )
 
