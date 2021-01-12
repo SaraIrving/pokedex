@@ -1,5 +1,5 @@
 import './App.css';
-
+import Header from './components/Header';
 import LandingCard from './components/LandingCard';
 import Loading from './components/Loading';
 import SearchBox from './components/SearchBox';
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-     Welcome to the Pokedex!
+     <Header></Header>
      {console.log('state =', state.randomPokemon)}
      {console.log('random length  = ', state.randomPokemon.length)}
      {state.view === "loading" && <Loading></Loading>}
