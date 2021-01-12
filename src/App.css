@@ -32,13 +32,14 @@
 
 /* button styling */
 button {
-  background-color: red;
+  background-color:rgb(89, 168, 241);
   color:white;
-  border: 3px solid lightblue;
-  border-radius: 10px;
+  border: none;
+  border-radius: 30px;
   width: 40%;
   padding: 10px;
-  margin: 10px;
+
+  margin-bottom: 20px;
   font-size: medium;
   font-weight: 700;
   cursor: pointer;
@@ -46,12 +47,12 @@ button {
 }
 
 button:hover {
-  background-color: rgb(89, 168, 241)
+  background-color: red;
 }
 
 /* Styling for the pokemon cards */
 .InfoStatsWrapper {
-  background-color: white;
+  background-color: black;
   display:flex;
   flex-direction: column;
 }
@@ -61,11 +62,14 @@ button:hover {
   flex-direction: column;
   align-content: flex-start;
   padding: 10px;
+  color: white;
+  font-weight: bolder;
 }
 
 .InfoWrapper h6 {
   text-align: center;
   color: red;
+  font-weight: bolder;
 }
 
 .randomPokemonList{
