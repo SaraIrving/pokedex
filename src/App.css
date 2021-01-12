@@ -29,9 +29,9 @@ footer {
   background-color: red;
   max-height: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-
+  padding: 2em;
 }
 
 .header img { 
@@ -45,9 +45,8 @@ button {
   color:white;
   border: none;
   border-radius: 30px;
-  width: 40%;
+  width: 25%;
   padding: 10px;
-
   margin-bottom: 20px;
   font-size: medium;
   font-weight: 700;
@@ -59,6 +58,14 @@ button:hover {
   background-color: red;
 }
 
+.headerButton {
+  width: 7%;
+  text-align: center;
+}
+
+.headerButton:hover {
+  background-color: goldenrod;
+}
 /* Styling for the pokemon cards */
 .InfoStatsWrapper {
   background-color: black;
