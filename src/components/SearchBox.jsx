@@ -20,6 +20,7 @@ export default function SearchBox(props) {
       options={pokemonOptions}
       getOptionLabel={(option) => option}
       style={{ width: 300 }}
+      disableClearable
       renderInput={(params) => {return (<TextField {...params} label="Pokemon name..." variant="outlined" />)}}
     />
     </form>
