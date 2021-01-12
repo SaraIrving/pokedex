@@ -1,3 +1,4 @@
+/* App styling */
 .App {
   /* text-align: center; */
   background-color: beige;
@@ -7,6 +8,7 @@
   justify-content: center;
 }
 
+/* header component styling */
 .header {
   background-color: red;
   max-height: 100px;
@@ -20,11 +22,13 @@
   height: 85px;
 }
 
+/* button styling */
 button {
   background-color: red;
   color:white;
   border: 3px solid lightblue;
   border-radius: 10px;
+  width: 40%;
   padding: 10px;
   margin: 10px;
   font-size: medium;
@@ -37,6 +41,7 @@ button:hover {
   background-color: rgb(89, 168, 241)
 }
 
+/* Styling for the pokemon cards */
 .InfoStatsWrapper {
   background-color: white;
   display:flex;
@@ -67,5 +72,23 @@ button:hover {
   padding: 5px;
   width: 50%;
   font-size: small;
- 
+}
+
+/* Styling for LandingCard component*/
+
+.landingView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  color:red;
+  font-weight: bolder;
 }
