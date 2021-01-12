@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageCarousel from './ImageCarousel';
 
 
 export default function InfoStats(props) {
@@ -11,6 +12,7 @@ export default function InfoStats(props) {
 
   return (
     <div style={style} className="InfoStatsWrapper">
+      <ImageCarousel pokemonObj={props.pokemon}></ImageCarousel>
       <div className="InfoStatsWrapper">
         <div>
           <h3>Basic Info</h3>
