@@ -23,8 +23,8 @@ export default function ImageCarousel(props) {
     return (
       <Carousel.Item>
         <img 
-          style={{'height': '250px', backgroundColor: "black"}}
-          className="d-block w-100"
+          style={{'height': '250px', 'margin': 'auto', 'maxWidth': '100%', backgroundColor: "black"}}
+          className="d-block"
           src={spritePics[picture]}
           alt="Pokemon Image"
           key={index}
