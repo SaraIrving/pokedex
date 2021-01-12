@@ -55,6 +55,7 @@ button:hover {
   background-color: black;
   display:flex;
   flex-direction: column;
+  /* width: 50%; */
 }
 
 .InfoWrapper{
@@ -104,3 +105,25 @@ button:hover {
   color:red;
   font-weight: bolder;
 }
+
+/* SearchView component styling */
+
+.searchedPokemonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.searchBox {
+  margin: 20px;
+}
+
+.searchedPokemon {
+  width: 50%;
+  background: black;
+  padding: 25px;
+  font-size: larger;
+}
+
