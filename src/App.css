@@ -1,51 +1,61 @@
 .App {
   text-align: center;
-}
-/* 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  background-color: beige;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+  background-color: red;
+  max-height: 100px;
+  display: flex;
+  justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header img { 
+  width: 200px;
+  height: 85px;
+}
+
+button {
+  background-color: red;
+  color:white;
+  border: 3px solid lightblue;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  font-size: medium;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+button:hover {
+  background-color: rgb(89, 168, 241)
+}
+
+.InfoStatsWrapper {
+  background-color: white;
+  display:flex;
+  flex-direction: column;
+}
+
+.InfoWrapper{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 .randomPokemonList{
   list-style-type: none;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .randomListItem{
-  margin: 4px;
-  width: 30%;
+  margin: 5px;
+  padding: 5px;
+  width: 50%;
+  font-size: small;
  
 }
