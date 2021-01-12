@@ -1,5 +1,6 @@
 import React from 'react';
 
+// This component is a cute pokemon gif that shows up before the LandingCard component is rendered due to the delay in fetching information from the api
 
 export default function Loading() {
   return (

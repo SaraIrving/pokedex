@@ -3,13 +3,15 @@ import ImageCarousel from './ImageCarousel';
 
 
 export default function InfoStats(props) {
-  console.log("INFOSTATS props = ", props)
+  //create a customColor variable that will be the color associated with each pokemon which will be used in the inline styling of the border and the span tags, make sure text does not end up black or it will be lost in the background
+
   let customColor;
   if(props.color === "black") {
     customColor = "white";
   } else {
     customColor = props.color;
   }
+
   const style = {
                   borderWidth: "10px",
                   borderStyle: "solid",
@@ -21,6 +23,7 @@ export default function InfoStats(props) {
                     color: customColor
                   };
   
+  // apply className conditionally to the main div to reflect the changes we want in teh card styling depending on the current view
   let conditionalClassname;
   if(props.state.view === "landing"){
     conditionalClassname = "InfoStatsWrapper";
@@ -58,10 +61,7 @@ export default function InfoStats(props) {
           <p>speed: <span style={spanStyle}>{props.pokemon.baseStats[5].base_stat}</span></p>
         </div>
       </div>
-      
     </div>
-  )
-
-
+  );
 }
 

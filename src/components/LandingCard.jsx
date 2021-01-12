@@ -3,7 +3,7 @@ import LightSpeed from 'react-reveal/LightSpeed';
 import Button from './Button';
 import InfoStats from './InfoStats';
 
-
+//This component will be displayed once the app loads and will hold the three randomly selected pokemon cards
 export default function LandingCard(props) {
 
   return (
@@ -25,12 +25,7 @@ export default function LandingCard(props) {
             </li>
             )
           })}
-
       </ul>
     </div>
-    
-
-  )
-
-
+  );
 }

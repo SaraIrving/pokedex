@@ -2,23 +2,20 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//import Carousel.item from 'react-bootstrap/Carousel'
-
-
 export default function ImageCarousel(props) {
-  //console.log("CAROUSEL props = ", props.pokemonObj.sprites)
+  //filter through sprites object and build up an object which only has the actual images, not the keys with null as a value
   const allSpritesObj = props.pokemonObj.sprites;
   const spritePics = {};
+
   for (let picDescription in allSpritesObj) {
     if (allSpritesObj[picDescription] !== null && picDescription !== "other" && picDescription !== "versions") {
       spritePics[picDescription] = allSpritesObj[picDescription];
     }
-  }
-
-  console.log("spritePics = ", spritePics);
+  };
 
   const spritePicsArray = Object.keys(spritePics);
 
+  // map over the images and create an array of the Carousel.Item components that will be rendered in the Carousel component 
   const images = spritePicsArray.map((picture, index) => {
     return (
       <Carousel.Item>
@@ -30,18 +27,13 @@ export default function ImageCarousel(props) {
         />
       </Carousel.Item>
 
-    )
-  })
-
-  console.log("images = ", images);
-  
+    );
+  });
 
   return (
     <Carousel>
       {images}
-      
     </Carousel>
-
-  )
+  );
 }
 
