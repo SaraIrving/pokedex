@@ -127,3 +127,12 @@ button:hover {
   font-size: larger;
 }
 
+
+/* Styling for ImageCarousel component */
+
+.d-block{
+  height: 250px;
+  margin: auto;
+  max-width: 100%;
+  background-color: black;
+}
