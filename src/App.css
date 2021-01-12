@@ -30,12 +30,13 @@ footer {
   max-height: 100px;
   display: flex;
   justify-content: center;
+  align-items: center;
 
 }
 
 .header img { 
   width: 200px;
-  height: 85px;
+  height: 120px;
 }
 
 /* button styling */
