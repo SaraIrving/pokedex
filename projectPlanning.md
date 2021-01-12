@@ -31,6 +31,8 @@
 ## Brainstorming approaches for project features 
 1. Using API, pulled from API documentation examples: 
   * ask for pokemon by name using:  https://pokeapi.co/api/v2/pokemon/{id or name}
+  *  pokemon colors are actually found by making a call to the species api!
+  * list of colors: pink, green, gray, yellow, white, 
 
 6. Styling, read more about Emotion library and decide if it is worth using
   * https://emotion.sh/docs/styled
