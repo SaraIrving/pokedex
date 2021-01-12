@@ -29,10 +29,6 @@ export default function ImageCarousel(props) {
           alt="Pokemon Image"
           key={index}
         />
-        <Carousel.Caption>
-          <h4>{picture}</h4>
-
-        </Carousel.Caption>
       </Carousel.Item>
 
     )
