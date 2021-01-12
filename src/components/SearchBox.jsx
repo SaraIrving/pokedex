@@ -13,9 +13,10 @@ export default function SearchBox(props) {
 
 
   return (
-    <form>
-        <Autocomplete
-        onChange={(event, value) => {console.log("CHANGE VALUE = ", value); props.setState(prev => ({...prev, searchedPokemonName: value.toLowerCase()}))}}
+    
+    <Autocomplete
+      className="searchBox"
+      onChange={(event, value) => {console.log("CHANGE VALUE = ", value); props.setState(prev => ({...prev, searchedPokemonName: value.toLowerCase()}))}}
       id="searchBox"
       options={pokemonOptions}
       getOptionLabel={(option) => option}
@@ -23,7 +24,7 @@ export default function SearchBox(props) {
       disableClearable
       renderInput={(params) => {return (<TextField {...params} label="Pokemon name..." variant="outlined" />)}}
     />
-    </form>
+    
   
     
   );
