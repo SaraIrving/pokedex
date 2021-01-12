@@ -1,7 +1,10 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   background-color: beige;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header {
@@ -9,6 +12,7 @@
   max-height: 100px;
   display: flex;
   justify-content: center;
+
 }
 
 .header img { 
@@ -42,7 +46,13 @@ button:hover {
 .InfoWrapper{
   display: flex;
   flex-direction: column;
-  
+  align-content: flex-start;
+  padding: 10px;
+}
+
+.InfoWrapper h6 {
+  text-align: center;
+  color: red;
 }
 
 .randomPokemonList{
