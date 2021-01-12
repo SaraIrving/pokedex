@@ -16,13 +16,13 @@ function App() {
 
   return (
     <div className="App">
-     <Header></Header>
-     {console.log('state =', state.randomPokemon)}
-     {console.log('random length  = ', state.randomPokemon.length)}
-     {state.view === "loading" && <Loading></Loading>}
-     {state.view === "landing" && <LandingCard state={state} setState={setState}></LandingCard>}
-     {state.view === "search" &&  <SearchView state={state} setState={setState} onClick={getPokemon}></SearchView>}
-    
+      <Header></Header>
+      {console.log('state =', state.randomPokemon)}
+      {console.log('random length  = ', state.randomPokemon.length)}
+      {state.view === "loading" && <Loading></Loading>}
+      {state.view === "landing" && <LandingCard state={state} setState={setState}></LandingCard>}
+      {state.view === "search" &&  <SearchView state={state} setState={setState} onClick={getPokemon}></SearchView>}
+      <footer></footer>
     </div>
   );
 }
