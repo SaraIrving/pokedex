@@ -74,7 +74,9 @@ export default function usePokemonData(props) {
         
         setState(prev => ({...prev, randomColorArray: randomColors}));
       })
+      .catch(error => console.log(error));
     })
+    .catch(error => console.log(error));
   }, []);
  
 /*
@@ -108,7 +110,9 @@ This useEffect wraps the api call for when a user searches for a specific pokemo
         const color = response.data.color.name;
         setState(prev => ({...prev, searchedColor: color}));
       })
-    );
+      .catch(error => console.log(error))
+    )
+    .catch(error => console.log(error));
     }
   
   }, [state.searchedPokemonName]);
