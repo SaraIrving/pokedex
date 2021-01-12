@@ -20,9 +20,16 @@ export default function InfoStats(props) {
   const spanStyle= {
                     color: customColor
                   };
+  
+  let conditionalClassname;
+  if(props.state.view === "landing"){
+    conditionalClassname = "InfoStatsWrapper";
+  } else if (props.state.view === "search") {
+    conditionalClassname = "searchedPokemon"
+  }
 
   return (
-    <div style={style} className="InfoStatsWrapper">
+    <div style={style} className={conditionalClassname}>
       <ImageCarousel pokemonObj={props.pokemon}></ImageCarousel>
       <div className="InfoWrapper" >
         <div>
